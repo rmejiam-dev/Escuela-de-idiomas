@@ -28,19 +28,21 @@
                     </div>
                     <div>
                         <p class="text-xs text-gray-500">Tipo de certificado</p>
-                        <p class="font-medium">{{ ucfirst(str_replace('_', ' ', $procedure->certificate_type)) }}</p>
+                        <p class="font-medium">{{ ucfirst(__(str_replace('_', ' ', $procedure->certificate_type))) }}</p>
                     </div>
                     <div>
                         <p class="text-xs text-gray-500">Programa</p>
-                        <p class="font-medium">{{ ucfirst($procedure->program) }}</p>
+                        <p class="font-medium">{{ ucfirst(__(str_replace('_', ' ', $procedure->program))) }}</p>
                     </div>
                     <div>
                         <p class="text-xs text-gray-500">Fecha de emisión</p>
                         <p class="font-medium">{{ $procedure->completed_at ? $procedure->completed_at->format('d/m/Y') : 'N/A' }}</p>
                     </div>
                     <div>
-                        <p class="text-xs text-gray-500">Número de trámite</p>
-                        <p class="font-medium">{{ $procedure->id }}</p>
+                        <p class="text-xs text-gray-500">Hash</p>
+                        <p class="font-medium break-words whitespace-normal">{{ substr($procedure->document_hash, 0, 16) }}...{{ substr($procedure->document_hash, -16) }}</p>
+
+                        
                     </div>
                 </div>
             </div>

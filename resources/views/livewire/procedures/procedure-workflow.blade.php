@@ -398,7 +398,7 @@
                                     <div class="mt-3 p-2 bg-green-900 rounded-lg">
                                         <p class="text-xs text-green-300">
                                             <i class="bi bi-check-circle"></i> {{ $gradesCount }} notas cargadas -
-                                            Promedio: {{ number_format($gradesAverage, 2) }}
+                                            Promedio: {{ number_format($procedure->final_grades_average, 2) }}
                                         </p>
                                     </div>
                                 @endif

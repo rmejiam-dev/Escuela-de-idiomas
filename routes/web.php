@@ -96,7 +96,7 @@ Route::middleware(['auth', 'user.active'])->group(function () {
         Route::get('/create', ProcedureForm::class)->name('procedures.create');
         Route::get('/{procedureId}/edit', ProcedureForm::class)->name('procedures.edit');
         Route::get('/{procedureId}/workflow', ProcedureWorkflow::class)->name('procedures.workflow');
-        
+
         // Route::get('/review', ProcedureReview::class)->name('procedures.review');
     });
 
@@ -116,17 +116,15 @@ Route::middleware(['auth', 'user.active'])->group(function () {
     Route::prefix('reports')->group(function () {
         Route::get('/', Statistics::class)->name('reports.index');
     });
-
-
-    Route::get('/certificate/verify/{id}', function ($id) {
-        $procedure = Procedure::with('signatures')->findOrFail($id);
-
-        if ($procedure->status !== 'completed') {
-            return view('certificate.invalid');
-        }
-
-        return view('certificate.verify', compact('procedure'));
-    })->name('certificate.verify');
 });
+Route::get('/certificate/verify/{id}', function ($id) {
+    $procedure = Procedure::with('signatures')->findOrFail($id);
+
+    if ($procedure->status !== 'completed') {
+        return view('certificate.invalid');
+    }
+
+    return view('certificate.verify', compact('procedure'));
+})->name('certificate.verify');
 
 Route::get('/pre-enrollment', PublicForm::class)->name('pre-enrollment.public');
