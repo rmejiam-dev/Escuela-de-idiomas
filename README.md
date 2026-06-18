@@ -1,59 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestión de Trámites - Escuela de Idiomas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Propósito
 
-## About Laravel
+Plataforma integral para la gestión de trámites académicos, diseñada para automatizar y agilizar los procesos de certificación en una institución educativa.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ¿Qué resuelve?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Digitalización completa del flujo de trámites
+- Procesos automatizados con seguimiento en tiempo real
+- Validaciones y registro de historial de acciones
+- Dashboard con gráficas y estados claros
+- Generación automática de certificados con hash de verificación
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Flujo del Sistema
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Estudiante
+- Crea solicitud de certificado
+- Visualiza estado de sus trámites
 
-## Laravel Sponsors
+### Secretaría
+- Revisa documentación del estudiante
+- Aprueba o envía a observación
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Finanzas
+- Verifica comprobante de pago
+- Registra monto y método de pago
 
-### Premium Partners
+### Revisión Académica
+- Registra notas mediante archivo Excel
+- Calcula promedio final
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Firmas Digitales
+- Agrega firmas de autoridades
+- Sube imagen de firma con hash de verificación
 
-## Contributing
+### Completado
+- Genera certificado en PDF
+- Descarga del documento oficial
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## Características Técnicas
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Framework:** Laravel 11
+- **Interfaz dinámica:** Livewire 3
+- **Estilos:** Tailwind CSS
+- **Base de datos:** MySQL
+- **Generación de PDF:** DomPDF
+- **QR Code:** QuickChart API
+- **Autenticación:** Laravel Auth
+- **Roles y Permisos:** Spatie Permission
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Módulos Principales
 
-## License
+- Gestión de usuarios (CRUD con roles)
+- Gestión de trámites (creación, edición, workflow)
+- Verificación de pagos (sencillo)
+- Carga de notas desde Excel (PhpSpreadsheet)
+- Firmas digitales (imagen + hash)
+- Dashboard con métricas y gráficas
+- Historial de movimientos por trámite
+- Preinscripción pública
+- Reportes y estadísticas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Permisos del Sistema
+
+| Permiso | Descripción |
+|---------|-------------|
+| view dashboard | Acceso al panel principal |
+| view own procedures | Ver solo sus trámites |
+| view all procedures | Ver todos los trámites |
+| create procedures | Crear nuevos trámites |
+| review procedures | Revisar y aprobar trámites |
+| edit procedures | Editar cualquier trámite |
+| edit own procedures | Editar sus propios trámites |
+| sign procedures | Firmar documentos |
+| manage users | Gestionar usuarios |
+| manage roles | Gestionar roles y permisos |
+| verify payments | Verificar pagos |
+| view reports | Ver reportes y estadísticas |
+| manage pre_enrollments | Gestionar preinscripciones |
+
+---
+
+## Instalación
+
+```bash
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm run build
+php artisan serve
