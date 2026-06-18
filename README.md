@@ -91,18 +91,18 @@ Plataforma integral para la gestión de trámites académicos, diseñada para au
 
 ---
 ## Default credentials
-**Admin:** rmejiam.dev@gmail.com
-**Password:** 12345678
-**Secretary:** secretary@escuela.com
-**Password:** 12345678
-**Accountant:** accountant@escuela.com
-**Password:** 12345678
-**Academic:** academic@escuela.com
-**Password:** 12345678
-**Signer:** signer@escuela.com
-**Password:** 12345678
-**Student:** student@escuela.com
-**Password:** 12345678
+- **Admin:** rmejiam.dev@gmail.com
+- **Password:** 12345678
+- **Secretary:** secretary@escuela.com
+- **Password:** 12345678
+- **Accountant:** accountant@escuela.com
+- **Password:** 12345678
+- **Academic:** academic@escuela.com
+- **Password:** 12345678
+- **Signer:** signer@escuela.com
+- **Password:** 12345678
+- **Student:** student@escuela.com
+- **Password:** 12345678
 ---
 
 ## Instalación
